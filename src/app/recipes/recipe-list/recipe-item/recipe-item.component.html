@@ -1,0 +1,10 @@
+<a class="thumbnail clearfix" (click)="getRecipe()" >
+    <div class="pull-left">
+      <h4 >{{recipeItem.name}}</h4>
+      <p >{{recipeItem.description}}</p>
+    </div>
+    <span class="pull-right">
+      <img src={{recipeItem.imageUrl}} alt="Image" class="img-responsive img-rounded" style="max-height:150px; max-width:150px;">
+      <!--[src]="recipe.imageUrl"-->
+    </span>
+  </a>

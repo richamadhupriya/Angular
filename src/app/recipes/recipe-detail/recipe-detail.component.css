@@ -1,0 +1,19 @@
+.details
+{
+    margin-left:6cm;
+    max-width:500px;
+    text-align: justify
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style-type: none;
+}
+.panel-group
+{
+    max-width:300px;
+}
+button{
+    margin-right: 10px;
+}

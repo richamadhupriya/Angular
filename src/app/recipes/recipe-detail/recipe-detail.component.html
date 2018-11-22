@@ -1,0 +1,18 @@
+<div class="container">
+
+  <div class="row">
+    <hr width="1" size="500">
+    <div class="col-xs-9" class="details">
+      <img [src]="recipeDetail.imageUrl" class="img-responsive img-rounded" style="max-width:300px; max-height:300px;">
+       <h4>{{recipeDetail.name}}</h4>
+       <h4>{{recipeDetail.description}}</h4>
+
+       <div>
+         <button type="button" class="btn btn-success">Buy Now</button>
+         <button class="btn btn-danger" (click)="removeRecipe()">Remove</button>
+       </div>
+      <small>Ingredients</small>
+    </div>
+
+  </div>
+  </div>

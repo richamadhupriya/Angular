@@ -1,0 +1,14 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-5 col-md-4 col-sm-12">
+      <app-recipe-list (recipeChosen)="selectedRecipe = $event"></app-recipe-list>
+      
+    </div>
+    
+    <div class="col-lg-7 col-md-8 col-sm-12">
+      <app-recipe-detail *ngIf="selectedRecipe" [recipeDetail]="selectedRecipe"></app-recipe-detail>
+    </div>
+
+  </div>
+</div>

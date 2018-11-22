@@ -1,0 +1,24 @@
+<div class="container row">
+  <div class="col-xs-10" [ngStyle]="{
+                                  'background-color':'lavender',
+                                  'text-transform':'underline'
+                                }">
+    <div class="form">
+      <form (submit)="addIngredient($event)" #addIngredientForm="ngForm">
+        <h4>Add ingredients</h4>
+        <div class="form-group">
+          <label for="name">Name: </label>
+          <input type="text" class="name form-control" id="name"  placeholder="Enter name"/>
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount: </label>
+          <input type="text" class="amount form-control" id="amount" placeholder="Enter amount" />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success" (click)="addIngredient()">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
