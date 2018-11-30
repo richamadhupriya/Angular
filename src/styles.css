@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+
+@media (min-width: 768px) and (max-width: 1000px) {
+    .collapse {
+        display: none !important;
+    }
+}
+#details
+{
+    margin-left:-200px;
+}
+
+.thumbnail:hover
+{
+    background-color: rgba(255, 235, 205, 0.411);
+}
+
+ @media (min-width: 641px) {
+    span.icon {display:none}
+    span.text {display:inline-block}
+}
+
+@media (max-width: 640px) {
+    span.icon {display:inline-block}
+    span.text {display:none}
+}

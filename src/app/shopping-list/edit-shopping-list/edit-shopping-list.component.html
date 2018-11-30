@@ -1,21 +1,25 @@
 <div class="container row">
-  <div class="col-xs-10" [ngStyle]="{
-                                  'background-color':'lavender',
-                                  'text-transform':'underline'
-                                }">
+  <div class="axis-col-md-6 axis-col-sm-6 axis-col-xs-12" >
     <div class="form">
-      <form (submit)="addIngredient($event)" #addIngredientForm="ngForm">
-        <h4>Add ingredients</h4>
-        <div class="form-group">
-          <label for="name">Name: </label>
-          <input type="text" class="name form-control" id="name"  placeholder="Enter name"/>
+    
+      <form [formGroup]="addIngredientFrm" (submit)="addIngredient($event)" >
+        <div class="axis-form-group">
+          <label for="name" class="axis-control-label">Name<span class="axis-required-indicator">*</span></label>
+          <input class="axis-form-control" type="text" formControlName="name" #name axis-input-clear> 
+          <span *ngIf="addIngredientFrm.get('name').hasError('required')"><span class="axis-required-indicator">Please enter name.</span></span>
+          <span *ngIf="addIngredientFrm.get('name').hasError('pattern')"><span class="axis-required-indicator">Special characters are not allowed.</span></span>
         </div>
-        <div class="form-group">
-          <label for="amount">Amount: </label>
-          <input type="text" class="amount form-control" id="amount" placeholder="Enter amount" />
+
+        <div class="axis-form-group">
+          <label for="amount" class="axis-control-label">Amount<span class="axis-required-indicator">*</span></label>
+          <input class="axis-form-control" type="text" formControlName="amount" #amount axis-input-clear> 
+          <span *ngIf="addIngredientFrm.get('amount').hasError('required')"><span class="axis-required-indicator">Please enter amount.</span></span>
+          <span *ngIf="addIngredientFrm.get('amount').hasError('pattern')"><span class="axis-required-indicator">Negative value not allowed.</span></span>
         </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-success" (click)="addIngredient()">Add</button>
+
+        <div class="axis-form-group">
+          <input type="submit" axis-button data-kind="primary" [disabled]="!addIngredientFrm.valid" value="Add"/>
+          <button axis-button data-kind="primary" [disabled]='!addIngredientFrm.valid' (click)="reset()">Clear</button>
         </div>
       </form>
     </div>

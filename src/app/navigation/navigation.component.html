@@ -1,28 +1,46 @@
-<nav class="navbar navbar-default bg-dark">
-    <div class="container-fluid">
-        <div class="navbar-header ">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>                        
-                      </button>
-            <a href="#" class="navbar-brand">CookBook</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li><a href="#" routerLink="shopping">Shopping List</a></li>
-                <li><a href="#" routerLink="recipes">Recipes</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" role="button" data-toggle="dropdown">Manage Data
-                    <span class="glyphicon glyphicon-chevron-down"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Get data</a></li>
-                      <li><a class="dropdown-item" href="#">Save Data</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+<nav class="navbar navbar-default navbar-expand-md">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a routerLink="" class="navbar-brand" style="cursor: pointer">CookBook</a>
     </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active"><a routerLink="shopping">Shopping List</a></li>
+        <li routerLinkActive="active"><a routerLink="recipes">Recipes</a></li>
+        <li routerLinkActive="active"><a routerLink="register">Register</a></li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li style="margin-top:15px; margin-left:15px;">
+          <input type="color" (change)="onChange($event.target.value)" />
+
+        </li>
+
+        <li class="dropdown" manageData>
+          <a class="dropdown-toggle" role="button" data-toggle="dropdown">Manage Data
+            <span class="glyphicon glyphicon-chevron-down"></span></a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" style="cursor:pointer">Get data</a></li>
+            <li><a class="dropdown-item" style="cursor:pointer">Save Data</a></li>
+            <!-- <axis-list [axisIncludeComponent]="inputcomponent" [list]="list"> 
+            </axis-list>-->
+          </ul>
+        </li>
+        <!-- <li  style="margin-top:15px; margin-left:15px;">
+          <div class="axis-form-group">
+            <axis-dropdown [heading]="'Manage Data'" #d3>
+              <axis-dropdown-list><a style="cursor:pointer">Get data</a></axis-dropdown-list>
+              <axis-dropdown-list><a style="cursor:pointer">Save Data</a></axis-dropdown-list>
+            </axis-dropdown>
+          </div>
+        </li> -->
+
+      </ul>
+    </div>
+  </div>
 </nav>

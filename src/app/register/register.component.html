@@ -1,0 +1,115 @@
+<!-- <div class="container">
+  <form>
+    <div class="axis-col-md-6 has-axis-required">
+      <div class="axis-form-group">
+        <label class="axis-control-label" for="uId">User ID<span class="axis-required-indicator">*</span></label>
+        <input class="axis-form-control" type="text" id="name" placeholder="Enter user id" axis-input-clear>
+      </div>
+    </div>
+
+    <div class="axis-col-md-6">
+      <div class="axis-form-group has-axis-required">
+        <label for="email" class="axis-control-label">Email ID<span class="axis-required-indicator">*</span></label>
+        <input class="axis-form-control" type="email" id="email" axis-input-clear>
+      </div>
+    </div>
+
+    <div class="axis-col-md-6">
+      <div class="axis-form-group has-axis-required">
+        <label for="password" class="axis-control-label">Password<span class="axis-required-indicator">*</span></label>
+        <input class="axis-form-control" type="password" id="password" axis-input-clear>
+      </div>
+    </div>
+
+    <div class="axis-col-md-6">
+      <div class="axis-form-group has-axis-required">
+        <label for="gender" class="axis-control-label">Gender<span class="axis-required-indicator">*</span></label>
+        <axis-radio-button-wrapper [required]="true">
+          <axis-radio heading="Male" cid="inline01" name="inline" value="male" data-orientation="inline"></axis-radio>
+          <axis-radio heading="Female" cid="inline02" name="inline" value="female" data-orientation="inline"></axis-radio>
+        </axis-radio-button-wrapper>
+      </div>
+    </div>
+
+    <div class="axis-col-md-6 ">
+      <label for="designation" class="axis-control-label"> Designation <span class="axis-required-indicator">*</span></label>
+      <div class="axis-form-group has-axis-required">
+        <axis-dropdown [dataProvider]="designation" [isCombobox]="true" name="axisdropdown"> </axis-dropdown>
+      </div>
+    </div>
+
+    <div class="axis-col-md-6">
+      <div class="axis-form-group has-axis-required">
+        <label class="axis-control-label">Experience(in years) <span class="axis-required-indicator">*</span></label>
+
+        <div class="axis-input-group">
+          <input [axisInputNumber]="mySettings110" class="axis-form-control" type="text" placeholder="Enter in numbers"
+            id="placeholderInput5" />
+          <span class="axis-input-group-addon"> years</span>
+        </div>
+      </div>
+    </div>
+
+
+  </form>
+</div> -->
+
+<div class="container">
+
+  <div class="axis-col-md-4">
+    <form [formGroup]="registerFrm">
+
+      <div class="axis-form-group">
+        <axis-button-toggle [isReset]="true" formControlName="tglBtn" [required]="true">
+          <axis-button-toggle-label>New</axis-button-toggle-label>
+          <axis-button-toggle-label>Registered</axis-button-toggle-label>
+        </axis-button-toggle>
+        <span *ngIf="!registerFrm.controls['tglBtn'].valid">Please select any one toggle button</span>
+      </div>
+
+      <div class="axis-form-group ">
+
+        <label class="axis-control-label" for="uId">User ID<span class="axis-required-indicator">*</span></label>
+        <input [formControlName]="uId" id="uId" class="axis-form-control" type="text" required axis-input-clear>
+        <span class="axis-error-block" *ngIf="registerFrm.controls['password'].touched && !registerFrm.controls['password'].valid">
+          Please enter your user id.
+        </span>
+      </div>
+
+      <div class="axis-form-group">
+        <label class="axis-control-label" for="email">Email ID<span class="axis-required-indicator">*</span></label>
+        <input [formControlName]="email" class="axis-form-control" id="email" type="email" axis-input-clear>
+
+        <span class="axis-error-block" *ngIf="registerFrm.controls['email'].touched && !registerFrm.controls['email'].valid">
+          Please enter your email id.
+        </span>
+      </div>
+
+      <div class="axis-form-group">
+        <label class="axis-control-label" for="password">Password<span class="axis-required-indicator">*</span></label>
+        <input [formControlName]="password" class="axis-form-control" id="password" type="password" axis-input-clear>
+
+        <span class="axis-error-block" *ngIf="registerFrm.controls['password'].touched && !registerFrm.controls['password'].valid">
+          Please enter your password.
+        </span>
+      </div>
+
+      <div class="axis-form-group">
+          <label for="designation" class="axis-control-label"> Designation <span class="axis-required-indicator">*</span></label>
+          <div class="axis-form-group">
+              <axis-dropdown [dataProvider]="designation" [isCombobox]="true" name="axisdropdown"> </axis-dropdown>
+            </div>
+        <span class="axis-error-block" *ngIf="registerFrm.controls['password'].touched && !registerFrm.controls['password'].valid">
+          Please select one.
+        </span>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <form id="register">
+    <input type="text" name="text" id="text"/>
+    <input type="button" value="submit" (click)="onClcik()">
+  </form>
+</div> -->

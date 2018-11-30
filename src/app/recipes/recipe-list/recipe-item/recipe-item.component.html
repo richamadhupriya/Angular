@@ -1,10 +1,16 @@
-<a class="thumbnail clearfix" (click)="getRecipe()" >
-    <div class="pull-left">
-      <h4 >{{recipeItem.name}}</h4>
-      <p >{{recipeItem.description}}</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-4 col-sm-3">
+      <a class="thumbnail clearfix" (click)="getRecipe()" [routerLink]="[index]" style="cursor:pointer" routerLinkActive="active">
+        <div class="pull-left">
+          <h4>{{recipeItem.name}}</h4>
+          <p>{{recipeItem.description}}</p>
+        </div>
+        <span class="pull-right">
+          <img src={{recipeItem.imageUrl}} alt="Image" class="img-responsive img-rounded" style="max-height:150px; max-width:150px;">
+          <!--[src]="recipe.imageUrl"-->
+        </span>
+      </a>
     </div>
-    <span class="pull-right">
-      <img src={{recipeItem.imageUrl}} alt="Image" class="img-responsive img-rounded" style="max-height:150px; max-width:150px;">
-      <!--[src]="recipe.imageUrl"-->
-    </span>
-  </a>
+  </div>
+</div>

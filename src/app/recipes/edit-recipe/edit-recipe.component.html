@@ -1,0 +1,57 @@
+<div class="container row">
+  <div class="axis-col-md-6 axis-col-sm-6 axis-col-xs-12">
+    <div class="form">
+
+      <form [formGroup]="addRecipeFrm" (submit)="addRecipe($event)">
+        <div class="axis-form-group">
+          <label for="name" class="axis-control-label">Name<span class="axis-required-indicator">*</span></label>
+          <input class="axis-form-control" type="text" formControlName="name" #name axis-input-clear>
+          <span *ngIf="addRecipeFrm.get('name').hasError('required')"><span class="axis-required-indicator">Please
+              enter name.</span></span>
+          <span *ngIf="addRecipeFrm.controls['name'].touched && addRecipeFrm.get('name').hasError('pattern')"><span class="axis-required-indicator">Special
+              characters are not allowed.</span></span>
+        </div>
+
+        <div class="axis-form-group">
+          <label for="imagePath" class="axis-control-label">Image<span class="axis-required-indicator">*</span></label>
+          <input class="axis-form-control" type="text" formControlName="imagePath" #imagePath axis-input-clear>
+          <span *ngIf="addRecipeFrm.get('imagePath').hasError('required')"><span class="axis-required-indicator">Please
+              enter image Path.</span></span>
+        </div>
+
+        <div>
+          <img src="" class="img-responsive" />
+        </div>
+
+        <div class="axis-form-group">
+          <label for="description" class="axis-control-label">Description<span class="axis-required-indicator">*</span></label>
+          <textarea class="axis-form-control" formControlName="description" #description axis-input-clear> </textarea>
+          <span *ngIf="addRecipeFrm.get('description').hasError('required')"><span class="axis-required-indicator">Please
+              enter description.</span></span>
+        </div>
+
+        <div class="axis-form-group" >
+            <label for="ingredient" class="axis-control-label">Ingredient<span class="axis-required-indicator">*</span></label>
+            <input class="axis-form-control" type="text" formControlName="ingredient" #ingredient axis-input-clear placeholder="Enter ingredient">
+            <span *ngIf="addRecipeFrm.get('ingredient').hasError('required')"><span class="axis-required-indicator">Please
+                enter ingredient.</span></span>
+
+            <label for="amount" class="axis-control-label">Amount<span class="axis-required-indicator">*</span></label>
+            <input class="axis-form-control" type="text" formControlName="amount" #amount axis-input-clear placeholder="Enter amount">
+            <span *ngIf="addRecipeFrm.get('amount').hasError('required')"><span class="axis-required-indicator">Please
+                enter amount.</span></span>
+
+            <button axis-button data-kind="primary" [disabled]='!addRecipeFrm.valid' >Delete ingredient</button>
+         
+        </div>
+
+        <div class="axis-form-group">
+          <input type="submit" axis-button data-kind="primary" [disabled]="!addRecipeFrm.valid" value="Add" />
+          <button axis-button data-kind="primary" [disabled]='!addRecipeFrm.valid' (click)="reset()">Clear</button>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+</div>

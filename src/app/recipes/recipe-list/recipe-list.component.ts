@@ -1,43 +1,51 @@
-import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Recipe } from '../recipe';
+import { RecipeService } from '../recipe.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  //i:number;
-  @Output() recipeChosen = new EventEmitter<Recipe>();
-  recipes: Recipe[] = [
-    new Recipe('Sweet', 'Desert', 'https://i.pinimg.com/236x/69/d0/d1/69d0d1a3b7fee3b1a88f64e20da5681e--sweets-clipart-cupcake-clipart.jpg')
-  ];
-  recipeData: Recipe[]=[];
-  constructor(private router:Router) { }
+
+  @ViewChild('nameRecipe') nameRecipe;
+
+  /*recipes: Recipe[] = [
+    new Recipe('Sweet', 'Desert', 'https://i.pinimg.com/originals/e3/a9/ab/e3a9abdbf66d0ef9650b36eb9687c85d.png')
+  ];*/
+
+  recipes: any = [];
+
+  recipeData: Recipe[] = [];
+  constructor(private recipeService: RecipeService,private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit() {
+    //this.http.get('../../assets/recipes.json').subscribe(data => { this.recipes = data as string[]; });
+
+    this.recipes = this.recipeService.getRecipes();
   }
 
-  addRecipe(event: any) {
-    let name = event.target.elements[0].value;
-    let description = event.target.elements[1].value;
-    let image = event.target.elements[2].value;
-
-    let newRecipe = new Recipe(name, description, image);
-    this.recipes.push(newRecipe);
-    event.target.reset();
+  createNewRecipe(){
+    this.router.navigate(['newRecipe'],{ relativeTo:this.route});
   }
 
-  // getRecipeDetails(recipe) {
-  //  this.recipeData.push(recipe);
-  //   console.log(recipe.name)
-  //   console.log( this.recipeData)
-  //   this.router.navigateByUrl('/recipes/details')
+
+
+  // addRecipe(event: any) {
+  //   let name = event.target.elements[0].value;
+  //   let description = event.target.elements[1].value;
+  //   let image = event.target.elements[2].value;
+    
+
+  //   let newRecipe = new Recipe(name,description,image);
+
+  //   this.recipeService.addRecipe(newRecipe)
+
+  //   event.target.reset();
   // }
 
-  getRecipeDetails(recipe:Recipe)
-  {
-    this.recipeChosen.emit(recipe);
-  }
+  
 
 }
